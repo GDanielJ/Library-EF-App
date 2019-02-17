@@ -54,6 +54,8 @@
     <Compile Include="Core\Domain\Book.cs" />
     <Compile Include="Core\Domain\Order.cs" />
     <Compile Include="Core\Domain\User.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Persistence\LibraryContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,7 +64,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\Repositories\" />
+    <Folder Include="Persistence\Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
