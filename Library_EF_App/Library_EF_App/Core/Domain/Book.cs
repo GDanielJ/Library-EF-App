@@ -11,5 +11,6 @@ namespace Library_EF_App.Core.Domain
         public int Id { get; set; }
         public string Name { get; set; }
         public Author Author { get; set; }
+        public int AuthorId { get; set; }
     }
 }

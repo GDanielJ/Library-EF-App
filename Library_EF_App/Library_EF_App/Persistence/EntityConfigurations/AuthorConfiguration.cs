@@ -14,6 +14,10 @@ namespace Library_EF_App.Persistence.EntityConfigurations
             Property(a => a.Lastname)
                 .IsRequired()
                 .HasMaxLength(255);
+
+            HasMany(a => a.Books)
+                .WithRequired(b => b.Author)
+                .HasForeignKey(b => b.AuthorId);
         }
     }
 }
