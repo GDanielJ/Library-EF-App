@@ -58,7 +58,12 @@
     <Compile Include="Migrations\201902171533419_InitialModel.Designer.cs">
       <DependentUpon>201902171533419_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902181830590_EnhanceBooksTable.cs" />
+    <Compile Include="Migrations\201902181830590_EnhanceBooksTable.Designer.cs">
+      <DependentUpon>201902181830590_EnhanceBooksTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\AuthorConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\BookConfiguration.cs" />
     <Compile Include="Persistence\LibraryContext.cs" />
     <Compile Include="Program.cs" />
@@ -74,6 +79,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902171533419_InitialModel.resx">
       <DependentUpon>201902171533419_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902181830590_EnhanceBooksTable.resx">
+      <DependentUpon>201902181830590_EnhanceBooksTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

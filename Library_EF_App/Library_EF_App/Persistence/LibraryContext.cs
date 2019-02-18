@@ -20,6 +20,7 @@ namespace Library_EF_App.Persistence
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new BookConfiguration());
+            modelBuilder.Configurations.Add(new AuthorConfiguration());
         }
     }
 }
