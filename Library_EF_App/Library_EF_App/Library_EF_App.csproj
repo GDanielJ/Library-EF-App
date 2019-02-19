@@ -66,9 +66,14 @@
     <Compile Include="Migrations\201902181929155_EnhanceAuthorsTable.Designer.cs">
       <DependentUpon>201902181929155_EnhanceAuthorsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902191633366_EnhanceUsersTable.cs" />
+    <Compile Include="Migrations\201902191633366_EnhanceUsersTable.Designer.cs">
+      <DependentUpon>201902191633366_EnhanceUsersTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\EntityConfigurations\AuthorConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\BookConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\UserConfigurations.cs" />
     <Compile Include="Persistence\LibraryContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902181929155_EnhanceAuthorsTable.resx">
       <DependentUpon>201902181929155_EnhanceAuthorsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902191633366_EnhanceUsersTable.resx">
+      <DependentUpon>201902191633366_EnhanceUsersTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

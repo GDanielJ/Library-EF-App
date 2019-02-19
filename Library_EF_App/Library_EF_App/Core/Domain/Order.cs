@@ -12,5 +12,6 @@ namespace Library_EF_App.Core.Domain
         public DateTime CheckOutDate { get; set; }
         public DateTime ReturnDate { get; set; }
         public User User { get; set; }
+        public int UserId { get; set; }
     }
 }
