@@ -21,6 +21,7 @@ namespace Library_EF_App.Persistence
         {
             modelBuilder.Configurations.Add(new BookConfiguration());
             modelBuilder.Configurations.Add(new AuthorConfiguration());
+            modelBuilder.Configurations.Add(new UserConfiguration());
         }
     }
 }

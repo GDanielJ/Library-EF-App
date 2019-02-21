@@ -54,6 +54,7 @@
     <Compile Include="Core\Domain\Book.cs" />
     <Compile Include="Core\Domain\Order.cs" />
     <Compile Include="Core\Domain\User.cs" />
+    <Compile Include="Core\IRepositories\IRepository.cs" />
     <Compile Include="Migrations\201902171533419_InitialModel.cs" />
     <Compile Include="Migrations\201902171533419_InitialModel.Designer.cs">
       <DependentUpon>201902171533419_InitialModel.cs</DependentUpon>
@@ -73,7 +74,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\EntityConfigurations\AuthorConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\BookConfiguration.cs" />
-    <Compile Include="Persistence\EntityConfigurations\UserConfigurations.cs" />
+    <Compile Include="Persistence\EntityConfigurations\UserConfiguration.cs" />
     <Compile Include="Persistence\LibraryContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

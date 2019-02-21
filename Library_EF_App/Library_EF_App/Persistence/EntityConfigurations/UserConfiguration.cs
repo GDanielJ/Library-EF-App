@@ -3,9 +3,9 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace Library_EF_App.Persistence.EntityConfigurations
 {
-    public class UserConfigurations : EntityTypeConfiguration<User>
+    public class UserConfiguration : EntityTypeConfiguration<User>
     {
-        public UserConfigurations()
+        public UserConfiguration()
         {
             Property(u => u.Firstname)
                 .IsRequired()
