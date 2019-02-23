@@ -76,6 +76,7 @@
     <Compile Include="Persistence\EntityConfigurations\BookConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\UserConfiguration.cs" />
     <Compile Include="Persistence\LibraryContext.cs" />
+    <Compile Include="Persistence\Repositories\Repository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -83,9 +84,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Persistence\Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902171533419_InitialModel.resx">
       <DependentUpon>201902171533419_InitialModel.cs</DependentUpon>
