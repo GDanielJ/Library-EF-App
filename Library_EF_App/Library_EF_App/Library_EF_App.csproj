@@ -77,6 +77,10 @@
     <Compile Include="Migrations\201902241535508_SeedDatabase.Designer.cs">
       <DependentUpon>201902241535508_SeedDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902241623520_SeedDatabase2.cs" />
+    <Compile Include="Migrations\201902241623520_SeedDatabase2.Designer.cs">
+      <DependentUpon>201902241623520_SeedDatabase2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\EntityConfigurations\AuthorConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\BookConfiguration.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902241535508_SeedDatabase.resx">
       <DependentUpon>201902241535508_SeedDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902241623520_SeedDatabase2.resx">
+      <DependentUpon>201902241623520_SeedDatabase2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
