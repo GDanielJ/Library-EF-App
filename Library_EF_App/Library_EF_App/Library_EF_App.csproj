@@ -81,11 +81,16 @@
     <Compile Include="Migrations\201902241623520_SeedDatabase2.Designer.cs">
       <DependentUpon>201902241623520_SeedDatabase2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902251900108_ReSeed.cs" />
+    <Compile Include="Migrations\201902251900108_ReSeed.Designer.cs">
+      <DependentUpon>201902251900108_ReSeed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\EntityConfigurations\AuthorConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\BookConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\UserConfiguration.cs" />
     <Compile Include="Persistence\LibraryContext.cs" />
+    <Compile Include="Persistence\Repositories\AuthorRepository.cs" />
     <Compile Include="Persistence\Repositories\Repository.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902241623520_SeedDatabase2.resx">
       <DependentUpon>201902241623520_SeedDatabase2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902251900108_ReSeed.resx">
+      <DependentUpon>201902251900108_ReSeed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
