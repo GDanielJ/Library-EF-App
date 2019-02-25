@@ -7,7 +7,7 @@ namespace Library_EF_App.Persistence.Repositories
 {
     public class AuthorRepository : Repository<Author>, IAuthorRepository
     {
-        public AuthorRepository(LibraryContext context) : base(context) // Vad gör sista delen här? ( : base(context)). base låter mig få tillgång till constructorn i DbContext, istället för klassen Repository? Varför gör jag såhär? :)
+        public AuthorRepository(LibraryContext context) : base(context) // Vad gör sista delen här? ( : base(context)). base låter mig få tillgång till constructorn i DbContext, istället för klassen Repository? Varför gör jag såhär? :) Eller är det Repository som är bas-klass?
         {
         }
 
