@@ -6,10 +6,29 @@ using System.Threading.Tasks;
 
 namespace Library_EF_App
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            string key;
+            do
+            {
+                Console.Clear();
+                DisplayMenu();
+                key = Console.ReadLine();
+
+            } while (key != "9");
+        }
+
+        public static void DisplayMenu()
+        {
+            Console.WriteLine("The Library App");
+            Console.WriteLine();
+            Console.WriteLine("Manage:");
+            Console.WriteLine("1. users");
+            Console.WriteLine("2. loans");
+            Console.WriteLine("3. authors");
+            Console.WriteLine("4. books");
         }
     }
 }
