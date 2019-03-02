@@ -90,7 +90,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\EntityConfigurations\AuthorConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\BookConfiguration.cs" />
-    <Compile Include="Persistence\EntityConfigurations\OrderRepository.cs" />
+    <Compile Include="Persistence\Repositories\BookRepository.cs" />
+    <Compile Include="Persistence\Repositories\OrderRepository.cs" />
     <Compile Include="Persistence\EntityConfigurations\UserConfiguration.cs" />
     <Compile Include="Persistence\LibraryContext.cs" />
     <Compile Include="Persistence\Repositories\AuthorRepository.cs" />

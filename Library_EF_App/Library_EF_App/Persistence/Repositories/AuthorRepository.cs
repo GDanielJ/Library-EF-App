@@ -16,7 +16,7 @@ namespace Library_EF_App.Persistence.Repositories
             return LibraryContext.Authors.Include(a => a.Books).SingleOrDefault(a => a.Id == id);
         }
 
-        public LibraryContext LibraryContext // Vad är poängen med att göra så här?
+        public LibraryContext LibraryContext // Vad är poängen med att göra så här? Den här upprepar jag i varje repository. Inte bra... går att lösa snyggare.
         {
             get { return Context as LibraryContext; }
         }
