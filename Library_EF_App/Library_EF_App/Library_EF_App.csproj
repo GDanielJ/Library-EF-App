@@ -55,6 +55,8 @@
     <Compile Include="Core\Domain\Order.cs" />
     <Compile Include="Core\Domain\User.cs" />
     <Compile Include="Core\IRepositories\IAuthorRepository.cs" />
+    <Compile Include="Core\IRepositories\IBookRepository.cs" />
+    <Compile Include="Core\IRepositories\IOrderRepository.cs" />
     <Compile Include="Core\IRepositories\IRepository.cs" />
     <Compile Include="Core\IRepositories\IUserRepository.cs" />
     <Compile Include="Migrations\201902171533419_InitialModel.cs" />
@@ -88,6 +90,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\EntityConfigurations\AuthorConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\BookConfiguration.cs" />
+    <Compile Include="Persistence\EntityConfigurations\OrderRepository.cs" />
     <Compile Include="Persistence\EntityConfigurations\UserConfiguration.cs" />
     <Compile Include="Persistence\LibraryContext.cs" />
     <Compile Include="Persistence\Repositories\AuthorRepository.cs" />
