@@ -11,11 +11,18 @@ namespace Library_EF_App
         public static void Main(string[] args)
         {
             string key;
+
             do
             {
                 Console.Clear();
                 DisplayMenu();
                 key = Console.ReadLine();
+
+                string key2;
+                do
+                {
+
+                } while (key2 != "9");
 
             } while (key != "9");
         }
@@ -25,10 +32,26 @@ namespace Library_EF_App
             Console.WriteLine("The Library App");
             Console.WriteLine();
             Console.WriteLine("Manage:");
-            Console.WriteLine("1. users");
-            Console.WriteLine("2. loans");
-            Console.WriteLine("3. authors");
-            Console.WriteLine("4. books");
+            Console.WriteLine("\t1. Users");
+            Console.WriteLine("\t2. Loans");
+            Console.WriteLine("\t3. Authors");
+            Console.WriteLine("\t4. Books");
+            Console.WriteLine("\t9. Exit");
         }
+
+        public static Dictionary<int, string> choices = new Dictionary<int, string>()
+        {
+            {1, "user"},
+            {2, "loan"},
+            {3, "author"},
+            {4, "book"}
+        };
+
+        public static void DisplaySubmenu(string key)
+        {
+            Console.WriteLine($"Manage choices[Convert.ToInt32(key)]s");
+        }
+
+
     }
 }
