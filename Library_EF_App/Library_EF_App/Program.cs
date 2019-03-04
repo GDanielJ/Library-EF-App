@@ -9,6 +9,20 @@ namespace Library_EF_App
     // Till Mack10izzle. Löste problemet som jag hade i UI:n, men du får gärna kolla ändå.
     // Har använt mycket exempel från kursen i EF för att bygga allt som har med databasen att göra,
     // samt repositories osv. Så har inte järnkoll på allt i projektet.
+
+
+    // Dock, nytt problem: hur använder jag mig av UnitOfWork och minimerar koden på bästa sätt? Tanken är att jag vill kunna 
+    // använda metoderna i mina repositories för att sen spara till databasen, men jag vill inte göra en switch/case för varje
+    // repository. Dvs:
+    // if (key == 1)
+    //      switch/case med metoder för UserRepository
+    // if (key == 2)
+    //      switch/case med metoder för OrderRepository
+    // osv....
+    //
+    // Tänkte lösa det här med att använda mig av en submeny (DisplaySubmenu()) och sen försöka göra en generell switch/case,
+    // men vet inte hur jag ska lösa det.
+
     public class Program
     {
         public static void Main(string[] args)
