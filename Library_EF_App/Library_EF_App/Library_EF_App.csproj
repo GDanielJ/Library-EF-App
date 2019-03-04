@@ -59,6 +59,7 @@
     <Compile Include="Core\IRepositories\IOrderRepository.cs" />
     <Compile Include="Core\IRepositories\IRepository.cs" />
     <Compile Include="Core\IRepositories\IUserRepository.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
     <Compile Include="Migrations\201902171533419_InitialModel.cs" />
     <Compile Include="Migrations\201902171533419_InitialModel.Designer.cs">
       <DependentUpon>201902171533419_InitialModel.cs</DependentUpon>

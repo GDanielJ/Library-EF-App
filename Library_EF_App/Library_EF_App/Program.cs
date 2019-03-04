@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Library_EF_App
 {
+    // Till Mack10izzle. Löste problemet som jag hade i UI:n, men du får gärna kolla ändå.
+    // Har använt mycket exempel från kursen i EF för att bygga allt som har med databasen att göra,
+    // samt repositories osv. Så har inte järnkoll på allt i projektet.
     public class Program
     {
         public static void Main(string[] args)
@@ -21,7 +24,29 @@ namespace Library_EF_App
                 string key2;
                 do
                 {
+                    Console.Clear();
+                    DisplaySubmenu(key);
+                    key2 = Console.ReadLine();
 
+                    switch (key2)
+                    {
+                        case "1":
+                            // Metod
+                            break;
+                        case "2":
+                            // Metod
+                            break;
+                        case "3":
+                            // Metod
+                            break;
+                        case "4":
+                            // Metod
+                            break;
+                        default:
+                            Console.WriteLine("Invalid command");
+                            Console.ReadLine();
+                            break;
+                    }
                 } while (key2 != "9");
 
             } while (key != "9");
@@ -49,7 +74,13 @@ namespace Library_EF_App
 
         public static void DisplaySubmenu(string key)
         {
-            Console.WriteLine($"Manage choices[Convert.ToInt32(key)]s");
+            Console.WriteLine($"Manage {choices[Convert.ToInt32(key)]}s");
+            Console.WriteLine();
+            Console.WriteLine($"\t1. Find {choices[Convert.ToInt32(key)]}");
+            Console.WriteLine($"\t2. Add {choices[Convert.ToInt32(key)]}");
+            Console.WriteLine($"\t3. Update {choices[Convert.ToInt32(key)]}");
+            Console.WriteLine($"\t4. Remove {choices[Convert.ToInt32(key)]}");
+            Console.WriteLine("\t9. Exit");
         }
 
 
