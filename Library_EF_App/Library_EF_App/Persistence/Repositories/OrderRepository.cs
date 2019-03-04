@@ -4,7 +4,7 @@ using Library_EF_App.Core.IRepositories;
 using System.Linq;
 using System.Data.Entity;
 
-namespace Library_EF_App.Persistence.EntityConfigurations
+namespace Library_EF_App.Persistence.Repositories
 {
     public class OrderRepository : Repository<Order>, IOrderRepository
     {
