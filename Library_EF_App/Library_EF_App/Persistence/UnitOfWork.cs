@@ -8,9 +8,9 @@ namespace Library_EF_App.Persistence
     {
         private readonly LibraryContext _context;
 
-        public UnitOfWork(LibraryContext context)
+        public UnitOfWork()
         {
-            _context = context;
+            _context = new LibraryContext();
             Authors = new AuthorRepository(_context);
             Books = new BookRepository(_context);
             Orders = new OrderRepository(_context);
