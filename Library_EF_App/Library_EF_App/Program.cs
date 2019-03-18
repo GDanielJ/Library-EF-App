@@ -29,11 +29,39 @@ namespace Library_EF_App
     // Uppdatering: Kanske kommit på ett sätt att lösa ovan. Se början på metod nedan som heter subFind, där jag tänker mig skapa
     // lämplig repository baserat på vilket val man gör i första menyn (dvs vad värdet på "key" är). Skapar nya problem dock.
 
+
+    /*
+     Yoooooooooooo
+     Snyggt jobbat. Klockrent att du använt EF. Det börjar likna något nu :D
+
+    UnitOfWork och EF
+    Snyggt att du gjort en egen abstraction över EFs egen UnitOfWork, dvs ditt LibraryContext.
+    Kolla vad folk säger om att abstrahera bort EFs egen UnitOfWork med sitt eget. Det finns både för och nackdelar.
+    Efs DbContext klass är en UoW och implementerar redan repository-pattern. 
+    Det du har absolut inte gjort fel genom att lägga ett eget repository-pattern över EFs eget men läs lite om det för att få mer förståelse.
+    En anledning att inte göra det är att det tar väldigt mkt tid att skapa klasser som wrappar EF istället för att bara använda dem rakt av.
+
+    Sen, iom att du har abstraherat in EF i din egna Uow, då ska EF stanna där nere. dvs, inget förutom
+    din egen UoW ska veta om att EF finns och all kommunikation med EF går via din UoW. Inkapsling av beroenden.
+
+    Sen när du väl ska använda din UoW, 
+    låt säga att du ska visa böcker
+
+    public static void ShowBooks(UnitOfWork uow)
+    {
+        var books = uow.Books.GetAll();
+        ...
+    }
+
+    Alla dina repon går via din UnitOfWork. 
+         
+     */
+
     public class Program
     {
         public static void Main(string[] args)
         {
-            using (var unitOfWork = new UnitOfWork(new LibraryContext()))
+            using (var unitOfWork = new UnitOfWork())
             {
                 string key;
 
@@ -108,9 +136,15 @@ namespace Library_EF_App
 
         public static void subFind(string key, UnitOfWork unitOfWork)
         {
+            //använd ditt UoW direkt.. dvs unitOfWork.Books.GetAll(); etc
+
             // User
             if (key == "1")
-                var repository = new UserRepository(unitOfWork); // Ska mina repositories ta en UnitOfWork i sin konstruktor istället för en LibraryContext?
+                var repository = new UserRepository(unitOfWork); 
+            // Ska mina repositories ta en UnitOfWork i sin konstruktor istället för en LibraryContext?
+            // Här tänker du fel. UnitOfWorken innehåller ju ditt repo, inte tvärtom. ditt repo använder EfContext men du kapslar in den i din UoW.
+
+
             // Loan
             if (key == "2")
                 var repository = new OrderRepository(unitOfWork);
