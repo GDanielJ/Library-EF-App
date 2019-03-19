@@ -86,6 +86,9 @@ namespace Library_EF_App
                                 break;
                             case "2":
                                 // Add
+                                Console.Clear();
+                                SubAdd(key, unitOfWork);
+                                Console.ReadLine();
                                 break;
                             case "3":
                                 // Update
@@ -100,7 +103,7 @@ namespace Library_EF_App
                         }
                     } while (key2 != "9");
 
-                } while (key != "9");
+                } while (key != "9"); // TODO - Exit-funktionen fungerar inte ordentligt
             }
         }
 
@@ -135,28 +138,28 @@ namespace Library_EF_App
             Console.WriteLine("\t9. Exit");
         }
 
-        public static void subFind(string key, UnitOfWork unitOfWork)
-        {
-            //använd ditt UoW direkt.. dvs unitOfWork.Books.GetAll(); etc
+        //public static void SubFind(string key, UnitOfWork unitOfWork)
+        //{
+        //    //använd ditt UoW direkt.. dvs unitOfWork.Books.GetAll(); etc
 
-            // User
-            if (key == "1")
-                var findUsers = unitOfWork.Users.Find();
-                // var repository = new UserRepository(unitOfWork); 
-            // Ska mina repositories ta en UnitOfWork i sin konstruktor istället för en LibraryContext?
-            // Här tänker du fel. UnitOfWorken innehåller ju ditt repo, inte tvärtom. ditt repo använder EfContext men du kapslar in den i din UoW.
+        //    // User
+        //    if (key == "1")
+        //        var findUsers = unitOfWork.Users.Find();
+        //        // var repository = new UserRepository(unitOfWork); 
+        //    // Ska mina repositories ta en UnitOfWork i sin konstruktor istället för en LibraryContext?
+        //    // Här tänker du fel. UnitOfWorken innehåller ju ditt repo, inte tvärtom. ditt repo använder EfContext men du kapslar in den i din UoW.
 
 
-            // Loan
-            if (key == "2")
-                var repository = new OrderRepository(unitOfWork);
-            // Author
+        //    // Loan
+        //    if (key == "2")
+        //        var repository = new OrderRepository(unitOfWork);
+        //    // Author
 
-            // Book
+        //    // Book
 
-        }
+        //}
 
-        public static void subAdd(string key, UnitOfWork unitOfWork)
+        public static void SubAdd(string key, UnitOfWork unitOfWork)
         {
             // User
             if (key == "1")
@@ -168,10 +171,10 @@ namespace Library_EF_App
                 Console.WriteLine("Lastname: ");
                 var lastName = Console.ReadLine();
 
-                var user = new User
-                {
+                var user = new User(firstName, lastName);
 
-                };
+                unitOfWork.Users.Add(user);
+                unitOfWork.Complete();
             }
         }
 
