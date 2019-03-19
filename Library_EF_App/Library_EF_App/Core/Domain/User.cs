@@ -13,8 +13,10 @@ namespace Library_EF_App.Core.Domain
         public string Lastname { get; set; }
         public virtual ICollection<Order> Orders { get; set; }
 
-        public User()
+        public User(string firstname, string lastname)
         {
+            Firstname = firstname;
+            Lastname = lastname;
             Orders = new HashSet<Order>();
         }
     }

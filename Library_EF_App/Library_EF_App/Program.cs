@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Library_EF_App.Persistence;
 using Library_EF_App.Persistence.Repositories;
+using Library_EF_App.Core.Domain;
 
 namespace Library_EF_App
 {
@@ -81,16 +82,16 @@ namespace Library_EF_App
                         switch (key2)
                         {
                             case "1":
-                                // Metod
+                                // Find
                                 break;
                             case "2":
-                                // Metod
+                                // Add
                                 break;
                             case "3":
-                                // Metod
+                                // Update
                                 break;
                             case "4":
-                                // Metod
+                                // Remove
                                 break;
                             default:
                                 Console.WriteLine("Invalid command");
@@ -140,7 +141,8 @@ namespace Library_EF_App
 
             // User
             if (key == "1")
-                var repository = new UserRepository(unitOfWork); 
+                var findUsers = unitOfWork.Users.Find();
+                // var repository = new UserRepository(unitOfWork); 
             // Ska mina repositories ta en UnitOfWork i sin konstruktor istället för en LibraryContext?
             // Här tänker du fel. UnitOfWorken innehåller ju ditt repo, inte tvärtom. ditt repo använder EfContext men du kapslar in den i din UoW.
 
@@ -154,6 +156,24 @@ namespace Library_EF_App
 
         }
 
+        public static void subAdd(string key, UnitOfWork unitOfWork)
+        {
+            // User
+            if (key == "1")
+            {
+                Console.WriteLine("Add user");
+                Console.WriteLine();
+                Console.WriteLine("Firstname: ");
+                var firstName = Console.ReadLine();
+                Console.WriteLine("Lastname: ");
+                var lastName = Console.ReadLine();
+
+                var user = new User
+                {
+
+                };
+            }
+        }
 
     }
 }
