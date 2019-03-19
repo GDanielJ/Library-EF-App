@@ -176,6 +176,22 @@ namespace Library_EF_App
                 unitOfWork.Users.Add(user);
                 unitOfWork.Complete();
             }
+
+            // Loan
+            if (key == "2")
+            {
+                Console.WriteLine("Add loan");
+                Console.WriteLine();
+                Console.WriteLine("Id of user loaning the book: ");
+                string userId = Console.ReadLine();
+
+                if (unitOfWork.Orders.Any(Int32.TryParse(userId, out int id))) ;
+
+            }
+
+
+            // Author
+            // Book
         }
 
     }

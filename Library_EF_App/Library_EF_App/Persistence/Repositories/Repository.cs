@@ -16,6 +16,8 @@ namespace Library_EF_App.Persistence.Repositories
             Context = context;
         }
 
+        // TODO - Lägg till Any();
+
         public TEntity Get(int id)
         {
             return Context.Set<TEntity>().Find(id);
