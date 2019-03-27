@@ -177,7 +177,7 @@ namespace Library_EF_App
                 unitOfWork.Complete();
             }
 
-            // Loan
+            //Loan
             if (key == "2")
             {
                 Console.WriteLine("Add loan");
@@ -185,7 +185,12 @@ namespace Library_EF_App
                 Console.WriteLine("Id of user loaning the book: ");
                 string userId = Console.ReadLine();
 
-                if (unitOfWork.Orders.Any(Int32.TryParse(userId, out int id))) ;
+                var userIdExists = unitOfWork.Orders.Any(o => o.UserId == Convert.ToInt32(userId));
+
+                if (userIdExists)
+                {
+
+                }
 
             }
 

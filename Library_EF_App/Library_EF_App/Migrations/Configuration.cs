@@ -100,7 +100,7 @@ namespace Library_EF_App.Migrations
             //};
 
             //foreach (var user in users)
-            //    context.Users.AddOrUpdate(u => new { u.Firstname, u.Lastname}, user);
+            //    context.Users.AddOrUpdate(u => new { u.Firstname, u.Lastname }, user);
             //#endregion
 
             //#region Add Orders

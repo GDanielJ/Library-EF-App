@@ -88,6 +88,18 @@
     <Compile Include="Migrations\201902251900108_ReSeed.Designer.cs">
       <DependentUpon>201902251900108_ReSeed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903261807442_AddedBookIdToOrder.cs" />
+    <Compile Include="Migrations\201903261807442_AddedBookIdToOrder.Designer.cs">
+      <DependentUpon>201903261807442_AddedBookIdToOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903261942334_RemovedBookIdFromOrder.cs" />
+    <Compile Include="Migrations\201903261942334_RemovedBookIdFromOrder.Designer.cs">
+      <DependentUpon>201903261942334_RemovedBookIdFromOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903271728019_AddedManyToManyBooksOrders.cs" />
+    <Compile Include="Migrations\201903271728019_AddedManyToManyBooksOrders.Designer.cs">
+      <DependentUpon>201903271728019_AddedManyToManyBooksOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Persistence\EntityConfigurations\AuthorConfiguration.cs" />
     <Compile Include="Persistence\EntityConfigurations\BookConfiguration.cs" />
@@ -128,6 +140,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902251900108_ReSeed.resx">
       <DependentUpon>201902251900108_ReSeed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903261807442_AddedBookIdToOrder.resx">
+      <DependentUpon>201903261807442_AddedBookIdToOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903261942334_RemovedBookIdFromOrder.resx">
+      <DependentUpon>201903261942334_RemovedBookIdFromOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903271728019_AddedManyToManyBooksOrders.resx">
+      <DependentUpon>201903271728019_AddedManyToManyBooksOrders.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

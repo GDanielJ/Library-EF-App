@@ -7,6 +7,7 @@ namespace Library_EF_App.Core.IRepositories
     public interface IRepository<TEntity> where TEntity : class
     {
         //Snyggt! 
+        bool Any(Expression<Func<TEntity, bool>> predicate);
         TEntity Get(int id);
         IEnumerable<TEntity> GetAll();
         // Förstår inte nedan riktigt. Find tar in en delagate (predicate?!?) (Expression<Func<TEntity), så att jag kan använda Lambda här. 

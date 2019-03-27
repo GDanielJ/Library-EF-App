@@ -16,7 +16,10 @@ namespace Library_EF_App.Persistence.Repositories
             Context = context;
         }
 
-        // TODO - Lägg till Any();
+        public bool Any(Expression<Func<TEntity, bool>> predicate)
+        {
+            return Context.Set<TEntity>().Any(predicate);
+        }
 
         public TEntity Get(int id)
         {
