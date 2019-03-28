@@ -103,7 +103,7 @@ namespace Library_EF_App
                         }
                     } while (key2 != "9");
 
-                } while (key != "9"); // TODO - Exit-funktionen fungerar inte ordentligt
+                } while (key != "9"); // TODO - Exit-funktionen fungerar inte ordentligt. Lägg till case "9" : break;
             }
         }
 
@@ -185,9 +185,20 @@ namespace Library_EF_App
                 Console.WriteLine("Id of user loaning the book: ");
                 string userId = Console.ReadLine();
 
-                var userIdExists = unitOfWork.Orders.Any(o => o.UserId == Convert.ToInt32(userId));
+                var books = new List<Book>();
+                Console.WriteLine("Enter Id of book to be loaned. Press \"d\" when done.");
+                while (true)
+                {
+                    string key2 = Console.ReadLine();
+                    if (key2 == "d" || key2 == "D")
+                        break;
+                    else if (Int32.TryParse(key2, out int numValue) && unitOfWork.Books.Any(b => b.Id == numValue))
+                    {
+                        books.Add() // TODO - Hur ska min Order???
+                    }
+                }
 
-                if (userIdExists)
+                if (unitOfWork.Orders.Any(o => o.UserId == Convert.ToInt32(userId))) // Fel väl?? Ska skapa order här.
                 {
 
                 }
