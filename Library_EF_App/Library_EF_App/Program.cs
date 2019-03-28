@@ -9,6 +9,16 @@ using Library_EF_App.Core.Domain;
 
 namespace Library_EF_App
 {
+    // Ny kommentar till Macke:
+    // Se metoden nedan från rad 184 ("SubAdd"). Metoden är ett utkast och lite klottrig. Tanken är att jag ska kunna skapa ett lån (order) av en bok eller flera böcker (book).
+    // Det finns en many-to-many-relation mellan klasserna order och book. Ett lån ska kunna ha flera böcker, och samtidigt ska man 
+    // kunna låna en bok flera gånger. I databasen finns en kopplingstabell "OrdersBooks" med OrderId och BookId.  
+    
+    // Hur lägger jag till ett lån till mitt context? Jag skulle vilja skicka in en lista med BookId:n, så att kopplingen skapas i OrderBooks,
+    // men fattar inte hur jag ska göra det. Jag vill ju inte heller skapa massa böcker i metoden, för de ska redan finnas i databasen, och
+    // och vill man lägga till böcker så får man göra det via en annan metod.
+
+
     // Till Mack10izzle. Löste problemet som jag hade i UI:n, men du får gärna kolla ändå.
     // Har använt mycket exempel från kursen i EF för att bygga allt som har med databasen att göra,
     // samt repositories osv. Så har inte järnkoll på allt i projektet.
@@ -198,7 +208,7 @@ namespace Library_EF_App
                     }
                 }
 
-                if (unitOfWork.Orders.Any(o => o.UserId == Convert.ToInt32(userId))) // Fel väl?? Ska skapa order här.
+                if (unitOfWork.Orders.Any(o => o.UserId == Convert.ToInt32(userId)))
                 {
 
                 }
