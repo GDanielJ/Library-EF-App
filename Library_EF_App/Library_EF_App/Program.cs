@@ -93,6 +93,9 @@ namespace Library_EF_App
                         {
                             case "1":
                                 // Find
+                                Console.Clear();
+                                SubFind(key, unitOfWork);
+                                Console.ReadLine();
                                 break;
                             case "2":
                                 // Add
@@ -169,7 +172,59 @@ namespace Library_EF_App
 
         //}
 
-        public static void SubAdd(string key, UnitOfWork unitOfWork)
+         public static void SubFind(string key, UnitOfWork unitOfWork)
+        {
+            // User
+            if (key == "1")
+            {
+                var users = unitOfWork.Users.GetAll();
+                Console.WriteLine("Users:");
+                foreach (var user in users)
+                {
+                    Console.WriteLine($"Id: {user.Id}, Firstname: {user.Firstname}, Lastname: {user.Lastname}");
+                }
+            }
+
+            // Loan (order)
+            if (key == "2")
+            {
+                var loans = unitOfWork.Orders.GetAll();
+                Console.WriteLine("Loans");
+                foreach (var loan in loans)
+                {
+                    var loanWithUser = unitOfWork.Orders.GetOrderWithUser(loan.Id);
+                    Console.WriteLine($"Loan Id: {loan.Id}, Checkout date: {loan.CheckOutDate}, " +
+                        $"Return date: {loan.ReturnDate}, User Id: {loanWithUser.User.Id}, " +
+                        $"User name: {loan.User.Firstname} {loan.User.Lastname}");
+                }
+            }
+
+            // Author
+            if (key == "3")
+            {
+                var authors = unitOfWork.Authors.GetAll();
+                Console.WriteLine("Authors:");
+                foreach (var author in authors)
+                {
+                    Console.WriteLine($"Id: {author.Id}, Firstname: {author.Firstname}, Lastname: {author.Lastname}");
+                }
+            }
+
+            //Book
+            if (key == "4") // TODO - Snygga till denna vid tillfälle
+            {
+                var books = unitOfWork.Books.GetAll();
+                Console.WriteLine("Books:");
+
+                foreach (var book in books)
+                {
+                    var bookWithAuthor = unitOfWork.Books.GetBookWithAuthor(book.Id);
+                    Console.WriteLine($"Book: {book.Name}, Author: {bookWithAuthor.Author.Firstname} {bookWithAuthor.Author.Lastname}");
+                }
+            }
+        }
+
+         public static void SubAdd(string key, UnitOfWork unitOfWork)
         {
             // User
             if (key == "1")
@@ -187,33 +242,33 @@ namespace Library_EF_App
                 unitOfWork.Complete();
             }
 
-            //Loan
-            if (key == "2")
-            {
-                Console.WriteLine("Add loan");
-                Console.WriteLine();
-                Console.WriteLine("Id of user loaning the book: ");
-                string userId = Console.ReadLine();
+            ////Loan
+            //if (key == "2")
+            //{
+            //    Console.WriteLine("Add loan");
+            //    Console.WriteLine();
+            //    Console.WriteLine("Id of user loaning the book: ");
+            //    string userId = Console.ReadLine();
 
-                var books = new List<Book>();
-                Console.WriteLine("Enter Id of book to be loaned. Press \"d\" when done.");
-                while (true)
-                {
-                    string key2 = Console.ReadLine();
-                    if (key2 == "d" || key2 == "D")
-                        break;
-                    else if (Int32.TryParse(key2, out int numValue) && unitOfWork.Books.Any(b => b.Id == numValue))
-                    {
-                        books.Add() // TODO - Hur ska min Order???
-                    }
-                }
+            //    var books = new List<Book>();
+            //    Console.WriteLine("Enter Id of book to be loaned. Press \"d\" when done.");
+            //    while (true)
+            //    {
+            //        string key2 = Console.ReadLine();
+            //        if (key2 == "d" || key2 == "D")
+            //            break;
+            //        else if (Int32.TryParse(key2, out int numValue) && unitOfWork.Books.Any(b => b.Id == numValue))
+            //        {
+            //            books.Add() // TODO - Hur ska min Order???
+            //        }
+            //    }
 
-                if (unitOfWork.Orders.Any(o => o.UserId == Convert.ToInt32(userId)))
-                {
+            //    if (unitOfWork.Orders.Any(o => o.UserId == Convert.ToInt32(userId)))
+            //    {
 
-                }
+            //    }
 
-            }
+            //}
 
 
             // Author

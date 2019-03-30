@@ -15,6 +15,11 @@ namespace Library_EF_App.Core.Domain
         public int UserId { get; set; }
         public ICollection<Book> Books { get; set; }
 
+        public Order()
+        {
+
+        }
+
         public Order(DateTime checkOutDate, DateTime returnDate, int userId, int bookId)
         {
             CheckOutDate = checkOutDate;
