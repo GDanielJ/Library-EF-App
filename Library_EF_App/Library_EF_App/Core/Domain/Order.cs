@@ -20,7 +20,7 @@ namespace Library_EF_App.Core.Domain
 
         }
 
-        public Order(DateTime checkOutDate, DateTime returnDate, int userId, int bookId)
+        public Order(DateTime checkOutDate, DateTime returnDate, int userId)
         {
             CheckOutDate = checkOutDate;
             ReturnDate = returnDate;

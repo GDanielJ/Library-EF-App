@@ -151,27 +151,6 @@ namespace Library_EF_App
             Console.WriteLine("\t9. Exit");
         }
 
-        //public static void SubFind(string key, UnitOfWork unitOfWork)
-        //{
-        //    //använd ditt UoW direkt.. dvs unitOfWork.Books.GetAll(); etc
-
-        //    // User
-        //    if (key == "1")
-        //        var findUsers = unitOfWork.Users.Find();
-        //        // var repository = new UserRepository(unitOfWork); 
-        //    // Ska mina repositories ta en UnitOfWork i sin konstruktor istället för en LibraryContext?
-        //    // Här tänker du fel. UnitOfWorken innehåller ju ditt repo, inte tvärtom. ditt repo använder EfContext men du kapslar in den i din UoW.
-
-
-        //    // Loan
-        //    if (key == "2")
-        //        var repository = new OrderRepository(unitOfWork);
-        //    // Author
-
-        //    // Book
-
-        //}
-
          public static void SubFind(string key, UnitOfWork unitOfWork)
         {
             // User
@@ -219,7 +198,7 @@ namespace Library_EF_App
                 foreach (var book in books)
                 {
                     var bookWithAuthor = unitOfWork.Books.GetBookWithAuthor(book.Id);
-                    Console.WriteLine($"Book: {book.Name}, Author: {bookWithAuthor.Author.Firstname} {bookWithAuthor.Author.Lastname}");
+                    Console.WriteLine($"Id: {book.Id}, Book: {book.Name}, Author: {bookWithAuthor.Author.Firstname} {bookWithAuthor.Author.Lastname}");
                 }
             }
         }
@@ -242,33 +221,38 @@ namespace Library_EF_App
                 unitOfWork.Complete();
             }
 
-            ////Loan
-            //if (key == "2")
-            //{
-            //    Console.WriteLine("Add loan");
-            //    Console.WriteLine();
-            //    Console.WriteLine("Id of user loaning the book: ");
-            //    string userId = Console.ReadLine();
+            //Loan
+            if (key == "2")
+            {
+                Console.WriteLine("Add loan");
+                Console.WriteLine();
+                Console.WriteLine("Id of user loaning the book: ");
+                string userId = Console.ReadLine();
+                int choice = Convert.ToInt32(userId);
 
-            //    var books = new List<Book>();
-            //    Console.WriteLine("Enter Id of book to be loaned. Press \"d\" when done.");
-            //    while (true)
-            //    {
-            //        string key2 = Console.ReadLine();
-            //        if (key2 == "d" || key2 == "D")
-            //            break;
-            //        else if (Int32.TryParse(key2, out int numValue) && unitOfWork.Books.Any(b => b.Id == numValue))
-            //        {
-            //            books.Add() // TODO - Hur ska min Order???
-            //        }
-            //    }
-
-            //    if (unitOfWork.Orders.Any(o => o.UserId == Convert.ToInt32(userId)))
-            //    {
-
-            //    }
-
-            //}
+                if (unitOfWork.Orders.Any(o => o.UserId == choice))
+                {
+                    Order loan = new Order(DateTime.Now, DateTime.Now.AddDays(30), Convert.ToInt32(userId));
+                    while (true)
+                    {
+                        Console.WriteLine("Enter Id of book to be loaned. Press \"d\" when done.");
+                        string key2 = Console.ReadLine();
+                        if (key2 == "d" || key2 == "D")
+                            break;
+                        else if (Int32.TryParse(key2, out int numValue) && unitOfWork.Books.Any(b => b.Id == numValue))
+                        {
+                            Book book = unitOfWork.Books.Get(Convert.ToInt32(key2));
+                            loan.Books.Add(book);
+                        }
+                    }
+                    unitOfWork.Orders.Add(loan);
+                    unitOfWork.Complete();
+                }
+                else
+                {
+                    Console.WriteLine($"User with Id {userId} does not exist.");
+                }
+            }
 
 
             // Author
