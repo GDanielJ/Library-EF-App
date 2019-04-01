@@ -255,7 +255,19 @@ namespace Library_EF_App
             }
 
             // Author
+            if (key == "3")
+            {
+                Console.WriteLine("Add book");
+                Console.WriteLine();
+                Console.WriteLine("Firstname: ");
+                var firstName = Console.ReadLine();
+                Console.WriteLine("Lastname: ");
+                var lastName = Console.ReadLine();
 
+                var author = new Author(firstName, lastName);
+                unitOfWork.Authors.Add(author);
+                unitOfWork.Complete();
+            }
 
             // Book
             if (key == "4")

@@ -12,9 +12,14 @@ namespace Library_EF_App.Core.Domain
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public virtual ICollection<Book> Books { get; set; }
-
         public Author()
         {
+
+        }
+        public Author(string firstname, string lastname)
+        {
+            Firstname = firstname;
+            Lastname = lastname;
             Books = new HashSet<Book>();
         }
     }
