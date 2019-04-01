@@ -105,6 +105,9 @@ namespace Library_EF_App
                                 break;
                             case "3":
                                 // Update
+                                Console.Clear();
+                                SubUpdate(key, unitOfWork);
+                                Console.ReadLine();
                                 break;
                             case "4":
                                 // Remove
@@ -152,7 +155,7 @@ namespace Library_EF_App
         }
 
          public static void SubFind(string key, UnitOfWork unitOfWork)
-        {
+         {
             // User
             if (key == "1")
             {
@@ -201,10 +204,10 @@ namespace Library_EF_App
                     Console.WriteLine($"Id: {book.Id}, Book: {book.Name}, Author: {bookWithAuthor.Author.Firstname} {bookWithAuthor.Author.Lastname}");
                 }
             }
-        }
+         }
 
          public static void SubAdd(string key, UnitOfWork unitOfWork)
-        {
+         {
             // User
             if (key == "1")
             {
@@ -298,6 +301,43 @@ namespace Library_EF_App
                 unitOfWork.Books.Add(book);
                 unitOfWork.Complete();
             }
+         }
+
+        public static void SubUpdate(string key, UnitOfWork unitOfWork)
+        {
+            // User
+            if (key == "1")
+            {
+                Console.WriteLine("Update user");
+                Console.WriteLine();
+                Console.WriteLine("Id of user to be updated:");
+                string userId = Console.ReadLine();
+                int choice = Convert.ToInt32(userId);
+
+                if (unitOfWork.Users.Any(u => u.Id == choice))
+                {
+                    var user = unitOfWork.Users.Get(choice);
+                    Console.WriteLine($"{user.Firstname} {user.Lastname}");
+
+                    Console.WriteLine("New firstname:");
+                    string newFirstname = Console.ReadLine();
+                    Console.WriteLine("New lastname:");
+                    string newLastname = Console.ReadLine();
+
+                    user.Firstname = newFirstname;
+                    user.Lastname = newLastname;
+
+                    unitOfWork.Complete();
+                }
+                else
+                {
+                    Console.WriteLine($"User with Id {userId} does not exist.");
+                }
+            }
+
+            // Loan
+            // Author
+            // Book
         }
 
     }
