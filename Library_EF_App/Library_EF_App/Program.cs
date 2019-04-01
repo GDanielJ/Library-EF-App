@@ -254,9 +254,38 @@ namespace Library_EF_App
                 }
             }
 
-
             // Author
+
+
             // Book
+            if (key == "4")
+            {
+                Console.WriteLine("Add book");
+                Console.WriteLine();
+                Console.WriteLine("Name of book:");
+                string name = Console.ReadLine();
+
+                var book = new Book();
+
+                while (true)
+                {
+                    Console.WriteLine("Id of author");
+                    string authorId = Console.ReadLine();
+
+                    if (Int32.TryParse(authorId, out int numValue2) && unitOfWork.Authors.Any(b => b.Id == numValue2))
+                    {
+                        book.Name = name;
+                        book.AuthorId = Convert.ToInt32(authorId);
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Author with Id {authorId} does not exist.");
+                    }
+                }
+                unitOfWork.Books.Add(book);
+                unitOfWork.Complete();
+            }
         }
 
     }
