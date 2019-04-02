@@ -336,7 +336,42 @@ namespace Library_EF_App
             }
 
             // Loan
+            if (key == "2")
+            {
+                Console.WriteLine("Method not yet implemented.");
+            }
+
             // Author
+            if (key == "3")
+            {
+                Console.WriteLine("Update author");
+                Console.WriteLine();
+                Console.WriteLine("Id of author to be updated:");
+                string authorId = Console.ReadLine();
+                int choice = Convert.ToInt32(authorId);
+
+                if (unitOfWork.Authors.Any(a => a.Id == choice))
+                {
+                    var author = unitOfWork.Authors.Get(choice);
+                    Console.WriteLine($"{author.Firstname} {author.Lastname}");
+
+                    Console.WriteLine("New firstname:");
+                    string newFirstname = Console.ReadLine();
+                    Console.WriteLine("New lastname:");
+                    string newLastname = Console.ReadLine();
+
+                    author.Firstname = newFirstname;
+                    author.Lastname = newLastname;
+
+                    unitOfWork.Complete();
+
+                }
+                else
+                {
+                    Console.WriteLine($"Author with Id {choice} does not exist.");
+                }
+            }
+
             // Book
         }
 
