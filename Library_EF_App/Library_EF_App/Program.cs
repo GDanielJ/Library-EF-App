@@ -111,6 +111,9 @@ namespace Library_EF_App
                                 break;
                             case "4":
                                 // Remove
+                                Console.Clear();
+                                SubRemove(key, unitOfWork);
+                                Console.ReadLine();
                                 break;
                             default:
                                 Console.WriteLine("Invalid command");
@@ -403,5 +406,33 @@ namespace Library_EF_App
             }
         }
 
+        public static void SubRemove(string key, UnitOfWork unitOfWork)
+        {
+            // User
+            if (key == "1")
+            {
+                Console.WriteLine("Remove user");
+                Console.WriteLine();
+                Console.WriteLine("Id of user to be removed:");
+                string userId = Console.ReadLine();
+                int choice = Convert.ToInt32(userId);
+
+                if (unitOfWork.Users.Any(a => a.Id == choice))
+                {
+                    var user = unitOfWork.Users.Get(choice);
+                    unitOfWork.Users.Remove(user);
+                    unitOfWork.Complete();
+                    Console.WriteLine($"User with Id {choice} has been removed.");
+                }
+                else
+                {
+                    Console.WriteLine($"User with Id {choice} does not exist.");
+                }
+            }
+
+            // Loan
+            // Author
+            // Book
+        }
     }
 }
