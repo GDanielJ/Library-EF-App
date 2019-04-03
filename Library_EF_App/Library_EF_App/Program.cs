@@ -373,6 +373,34 @@ namespace Library_EF_App
             }
 
             // Book
+            if (key == "4")
+            {
+                Console.WriteLine("Update book");
+                Console.WriteLine();
+                Console.WriteLine("Id of book to be updated:");
+                string bookId = Console.ReadLine();
+                int choice = Convert.ToInt32(bookId);
+
+                if (unitOfWork.Books.Any(a => a.Id == choice))
+                {
+                    var book = unitOfWork.Books.Get(choice);
+                    Console.WriteLine($"Author Id: {book.AuthorId}, Book name: {book.Name}");
+
+                    Console.WriteLine("New name of book:");
+                    string newBookName = Console.ReadLine();
+                    Console.WriteLine("New Author Id:");
+                    string newAuthorId = Console.ReadLine();
+
+                    book.Name = newBookName;
+                    book.AuthorId = Convert.ToInt32(newAuthorId);
+
+                    unitOfWork.Complete();
+                }
+                else
+                {
+                    Console.WriteLine($"Book with Id {choice} does not exist.");
+                }
+            }
         }
 
     }
